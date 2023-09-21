@@ -53,7 +53,7 @@ public class ComplainServiceImpl {
                     attachment.setFileName(lstFile.get(0).getFileName());
                     ret.setAttachment(attachment);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
 
