@@ -81,8 +81,8 @@ public class ComplainServiceImpl {
     public FileUploadDTO getFileAttachment(String baseUrl, Long complainId) {
         List<CompFileUpload> lstFileUpload = compFileUploadService.findByComplainId(complainId);
         if (!StringUtil.isListEmpty(lstFileUpload)) {
-            CompFileUpload lastFile = lstFileUpload.stream().max(Comparator.comparing(CompFileUpload::getCreateDate)).get();
             try {
+            CompFileUpload lastFile = lstFileUpload.stream().max(Comparator.comparing(CompFileUpload::getCreateDate)).get();
                 FileUploadDTO attachment = (FileUploadDTO) StringUtil.jsonToObjectNotNull(lastFile.getAdditionalInfo(), FileUploadDTO.class);
                 attachment.setLink(compFileUploadService.getFileLinkById(baseUrl, lastFile.getFileId()));
                 attachment.setFileName(lastFile.getFileName());
