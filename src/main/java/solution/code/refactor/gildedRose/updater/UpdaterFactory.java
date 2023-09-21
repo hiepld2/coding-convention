@@ -18,7 +18,7 @@ public class UpdaterFactory {
         itemTypes.put("conjured", Collections.singletonList("Conjured Mana Cake"));
     }
 
-    public static Updater updaterFor(Item currentItem) {
+    public static Updater getUpdater(Item currentItem) {
         if (improvesWithAge(currentItem)) {
             return new AgedBrieUpdater();
         } else if (isLegendary(currentItem)) {

@@ -1,7 +1,7 @@
 package solution.code.refactor.gildedRose;
 
 import static java.util.Arrays.asList;
-import static solution.code.refactor.gildedRose.updater.UpdaterFactory.updaterFor;
+import static solution.code.refactor.gildedRose.updater.UpdaterFactory.getUpdater;
 
 public class GildedRose {
     Item[] items;
@@ -11,6 +11,6 @@ public class GildedRose {
     }
 
     public void updateQuality() {
-        asList(items).forEach(item -> updaterFor(item).update(item));
+        asList(items).forEach(item -> getUpdater(item).update(item));
     }
 }
